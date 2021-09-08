@@ -1,6 +1,55 @@
-<p class="btn"><a onClick="sound()">クリック</a></p>
+<h1 class= "title">Sound Pad</h1>
+
+<script>
+function btn1() {
+document.getElementById("b1").play();
+document.getElementById("b1").currentTime = 0;
+}
+function btn2() {
+document.getElementById("b2").play();
+document.getElementById("b2").currentTime = 0;
+}
+</script>
+
+<audio id="b1" preload="auto">
+<source src="https://res.cloudinary.com/dr47riclr/video/upload/v1629117741/music/Dm_Code2_fp8zva.mp3" type="audio/mp3">
+</audio>
+
+<p class="btn"><a onClick="btn1()">□</a></p>
+
+<audio id="b2" preload="auto">
+<source src="https://res.cloudinary.com/dr47riclr/video/upload/v1629117741/music/Gm_Code1_tlp363.mp3" type="audio/mp3">
+</audio>
+
+<p class="btn"><a onClick="btn2()">□</a></p>
+
+
+
+<%# 学習用なのでこのまま残す p class="btn"><a onClick="sound()">□</a></p>
  
 <audio id="sound" preload="auto">
-    <source src="http://idotdesign.net/wp-content/themes/idotdesign/sound/sound.mp3" type="audio/mp3">
-    <source src="http://idotdesign.net/wp-content/themes/idotdesign/sound/sound.wav" type="audio/wav">
+    <source src="https://res.cloudinary.com/dr47riclr/video/upload/v1629117741/music/Dm_Code2_fp8zva.mp3" type="audio/mp3">
 </audio>
+
+<p class="btn"><a onClick="sound()">□</a></p>
+
+<audio id="sound" preload="auto">
+    <source src="https://res.cloudinary.com/dr47riclr/video/upload/v1629117741/music/Gm_Code1_tlp363.mp3" type="audio/mp3">
+</audio>
+
+
+<script>(function (window, $) {
+  'use strict';
+
+  $.fn.useSound = function (_event, _id) {
+    const se = $(_id);
+    this.on(_event, function(){
+      se[0].currentTime = 0;
+      se[0].play();
+    });
+    return this;
+  };
+
+})(this, this.jQuery);
+
+$('.btn a').useSound('mousedown touchstart', '#sound');</script%>
